@@ -1,0 +1,64 @@
+class NScene
+  attr_accessor   :button_collections
+  attr_accessor   :buttons
+  attr_accessor   :grids
+  attr_accessor   :textboxes
+  attr_accessor   :meters
+  attr_accessor   :active
+  
+  def initialize
+    @button_collections = []
+    @grids, @meters, @buttons, @textboxes = [], [], [], []
+    @active = true
+  end
+  
+  def update
+    if @active
+      if @grids then @grids.each { |grid| grid.update } end
+      if @meters then @meters.each { |meter| meter.update } end
+      if @button_collections then @button_collections.each { |bc| bc.update } end
+      if @buttons then @buttons.each { |button| button.update } end
+      if @textboxes then @textboxes.each { |textbox| textbox.update } end
+    end
+  end
+    
+  def timers
+    timers = []
+    for meter in @meters
+      if meter.is_a?(Timer)
+        timers.push(meter)
+      end
+    end
+    return timers
+  end
+  
+  def register(object)
+    case object
+    when Button
+      @buttons.push(object)
+    when ButtonCollection
+      @button_collections.push(object)
+    when Drag_Grid
+      @grids.push(object)
+    when Meter
+      @meters.push(object)
+    when Text_Box
+      @textboxes.push(object)
+    end
+  end
+  
+  def unregister(object)
+    case object
+    when Button
+      @buttons.delete(object)
+    when ButtonCollection
+      @button_collections.delete(object)
+    when Drag_Grid
+      @grids.delete(object)
+    when Meter
+      @meters.delete(object)
+    when Text_Box
+      @textboxes.delete(object)
+    end
+  end
+end
