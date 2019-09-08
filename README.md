@@ -1,8 +1,6 @@
 # RPGM-XP
 Compilation of scripts for RPGM XP
 
-Compilation of Scripts/Plugins written for RPGM MV
-
 All listed plugins should be assumed unrelated. All are only tested in a Windows environment, and have not been rigorously tested in a large-scale, sophisticated game. Some features may not be fully implemented; to the best of my knowledge, all such cases are documented.
 
 AltScene
