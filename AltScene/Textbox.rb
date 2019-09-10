@@ -36,7 +36,7 @@ class Text_Box
   attr_reader     :height
   attr_reader     :disposed
   
-  def initialize(x, y, width=CHAT_WIDTH, height=CHAT_HEIGHT, z=10000)
+  def initialize(specs)
     #x, y, and z coords of grid component
     if specs.has_key?("x") then @x = specs['x'] else @x=0 end
     if specs.has_key?("y") then @y = specs['y'] else @y=0 end
