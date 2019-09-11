@@ -132,7 +132,7 @@ class Text_Box
     i, length = @scroll_index_x, 0
     while true
       #stop if we hit end of message, or end of text box
-      if i == $keyboard.message.length or ((length + @text_widths[i]) >= @width+2*MARGINS)
+      if i == $keyboard.message.length or ((length + @text_widths[i]) >= @width+2*@margins)
         return mes
       else #incrementally generate message, keep track of total width of text/message
         mes += $keyboard.message[i, 1]
