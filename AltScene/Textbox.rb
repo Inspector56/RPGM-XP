@@ -42,7 +42,7 @@ class Text_Box
     if specs.has_key?("y") then @y = specs['y'] else @y=0 end
     if specs.has_key?("z") then z = specs['z'] else z = 10000 end
     #width and height of text box
-    if specs.has_key?("width") then @x = specs['width'] else @width=CHAT_WIDTH end
+    if specs.has_key?("width") then @width = specs['width'] else @width=CHAT_WIDTH end
     if specs.has_key?("height") then @height = specs['height'] else @height=CHAT_HEIGHT end  
     #size of margins on either side
     if specs.has_key?("margins") then @margins = specs['margins'] else @margins = MARGINS end
@@ -132,7 +132,7 @@ class Text_Box
     i, length = @scroll_index_x, 0
     while true
       #stop if we hit end of message, or end of text box
-      if i == $keyboard.message.length or ((length + @text_widths[i]) >= @width+2*@margins)
+      if i == $keyboard.message.length or ((length + @text_widths[i]) >= @width-2*@margins)
         return mes
       else #incrementally generate message, keep track of total width of text/message
         mes += $keyboard.message[i, 1]
